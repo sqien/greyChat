@@ -1,5 +1,8 @@
 import { useState } from 'react'
-import {useAuth, supabase } from '../context/AuthProvider'
+import { useAuth } from '../context/AuthProvider'
+import { supabase } from '../lib/supabaseClient'
+
+
 
 export function AuthControls(){
     const { user } = useAuth()
@@ -9,7 +12,9 @@ export function AuthControls(){
 
     const login = async () =>{
         setLoading(true)
-        const{ error } = await supabase.auth.signInWithOtp({email})
+        console.log('supabase.headers', supabase.auth)
+
+        const { error } = await supabase.auth.signInWithOtp({ email })
         setLoading(false)
         if (error){
             alert('Error: ' + error.message)
