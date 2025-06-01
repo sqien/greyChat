@@ -1,21 +1,24 @@
 import { useEffect } from 'react'
 import { supabase } from './lib/supabaseClient'
+import { MessageInput } from './components/MessageInput'
+import { MessageList } from './components/MessageList'
 
 function App() {
   useEffect(() => {
     supabase
-    .from('messages')
-    .select('*')
-    .then((res) => {
-      console.log('messages:', res.data)
-    })
+      .from('messages')
+      .select('*')
+      .then((res) => {
+        console.log('messages:', res.data)
+      })
   }, [])
 
   return (
-    <>
-    <h1 className='text-center  min-h-screen'>Hello Chat!</h1>
-      
-    </>
+    <div className="p-4 max-w-xl mx-auto">
+      <h1 className="text-2xl font-bold mb-4">Chat</h1>
+      <MessageList />
+      <MessageInput />
+    </div>
   )
 }
 
