@@ -1,14 +1,20 @@
 import { useState } from 'react'
 import { supabase } from '../lib/supabaseClient'
+import { useAuth } from '../context/AuthProvider'
+
 
 export function MessageInput(){
     const [message, setMessage] = useState('')
+    const { user } = useAuth()
 
     const handleSend = async () => {
         const trimmed = message.trim()
         if (trimmed === '') return
 
-        const { error } = await supabase.from('messages').insert([{ text: trimmed}])
+        const { error } = await supabase.from('messages').insert([{
+            text: trimmed,
+            user_id: user?.id
+        }])
         if (error){
             console.error('error sending message:', error)
         }else{
