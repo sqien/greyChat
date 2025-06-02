@@ -104,7 +104,7 @@ export function MessageList() {
     }
 
   return (
-    <ul className="space-y-2 mb-4 overflow-y-auto h-[calc(100vh-200px)]">
+    <ul className="space-y-2 mb-4 overflow-y-auto h-[calc(100vh-260px)]">
       {messages.map((msg) => (
         <li key={msg.id} className="p-2 rounded bg-zinc-100 dark:bg-zinc-300">
             <p className="font-semibold">

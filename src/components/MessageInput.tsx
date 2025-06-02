@@ -1,12 +1,16 @@
 import { useState, useRef, useEffect } from 'react'
 import { supabase } from '../lib/supabaseClient'
 import { useAuth } from '../context/AuthProvider'
+import { usePresence } from './ChatPresence'
 
 export function MessageInput() {
     const [message, setMessage] = useState('')
     const { user } = useAuth()
     const [loading, setLoading] = useState(false)
     const inputRef = useRef<HTMLInputElement>(null)
+    const timeoutRef = useRef<any>(null)
+
+    const { onlineUsers, updateTyping } = usePresence()
 
     useEffect(() => {
         inputRef.current?.focus()
@@ -52,13 +56,29 @@ export function MessageInput() {
             inputRef.current?.focus()
         }
     }
+
+    const handleInput = (e: React.ChangeEvent<HTMLInputElement>) =>{
+        setMessage(e.target.value)
+        updateTyping(true)
+
+        clearTimeout(timeoutRef.current)
+        timeoutRef.current = setTimeout(()=> updateTyping(false), 2000)
+    }
+
     return (
-        <div className="flex gap-2 mt-4">
+        <>
+        <div className="text-sm-text-grey-500">
+            Online: {onlineUsers.map(u => (
+            <span key={u.username} className='mr-2'>Anon | {u.isTyping && <em>writing..</em>}</span>
+            ))}
+        </div>
+
+        <div className="flex gap-2 mt-2">
             <input
                 ref={inputRef}
                 className="flex-1 border rounded px-3 py-2"
                 value={message}
-                onChange={(e) => setMessage(e.target.value)}
+                onChange={handleInput}
                 placeholder="Type your message..."
                 disabled={loading}
             />
@@ -70,5 +90,7 @@ export function MessageInput() {
                 {loading ? 'Sending...' : 'Send'}
             </button>
         </div>
+        </>
     )
+
 }
