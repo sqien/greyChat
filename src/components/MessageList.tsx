@@ -104,9 +104,10 @@ export function MessageList() {
     }
 
   return (
+    <div className="container">
     <ul className="space-y-2 mb-4 overflow-y-auto h-[calc(100vh-260px)]">
       {messages.map((msg) => (
-        <li key={msg.id} className="p-2 rounded bg-zinc-100 dark:bg-zinc-300">
+        <li key={msg.id} className="p-2 rounded">
             <p className="font-semibold">
             Anon
             </p>
@@ -116,13 +117,14 @@ export function MessageList() {
             <button onClick={() => handleDelete(msg.id)} className='w-full text-right mx-5 cursor-pointer text-red-500 text-sm hover:underline'>Delete</button>
           )}
           </div>
-          <small className="text-xs text-gray-500">
+          <small className="text-xs text-gray-300">
             {new Date(msg.created_at).toLocaleTimeString()}
           </small>
         </li>
       ))}
       <div ref={scrollRef} />
     </ul>
+    </div>
     
   )
 }
