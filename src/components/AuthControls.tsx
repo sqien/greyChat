@@ -31,7 +31,7 @@ export function AuthControls(){
     if(user){
         return(
             <div className="flex items-center gap-4">
-                <span className="text-sm text-gray-600">
+                <span className="text-sm text-gray-300">
                     {user.email}
                 </span>
                 <button onClick={logout} className="bg-red-500 text-white px-3 py-1 rounded">

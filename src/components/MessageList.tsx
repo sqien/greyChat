@@ -114,7 +114,7 @@ export function MessageList() {
 
           <div className="flex min-w-full"><p>{msg.text}</p>
           {msg.user_id === user?.id && (
-            <button onClick={() => handleDelete(msg.id)} className='w-full text-right mx-5 cursor-pointer text-red-500 text-sm hover:underline'>Delete</button>
+            <button onClick={() => handleDelete(msg.id)} className='text-right w-full mx-5 cursor-pointer text-red-500 text-sm hover:underline'>[x]</button>
           )}
           </div>
           <small className="text-xs text-gray-300">
