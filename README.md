@@ -1,54 +1,63 @@
-# React + TypeScript + Vite
+# greyChat 🖤💬
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![greyChat Demo](https://s2.ezgif.com/tmp/ezgif-2c7983a6004c82.gif)
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Project Overview
 
-## Expanding the ESLint configuration
+**greyChat** is a minimalistic real-time chat application built with React, Supabase and TypeScript.  
+It was created as a modern pet project to practice full-stack development with real-time features, authentication, and live presence.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+You can easily expand it for:
+- Real-time messaging platforms
+- Supabase practice projects
+- SaaS chat MVPs
+- Side-project startup ideas
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## ⚙️ Features
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- 🔐 User Authentication (Supabase Auth)
+- 💬 Real-Time Messaging (Supabase Realtime)
+- 📥 Message Sending & Receiving
+- 🗑 Deleting own messages
+- 🧹 Bad word filtering
+- 🟢 Online / Offline presence tracking (Supabase Presence API)
+- ✍ Typing indicator ("is typing...")
+- 🎯 Auto-scroll to new messages
+- 🌙 Light & dark mode support (basic)
+- 📦 Netlify deployment ready
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+---
+
+## 🛠 Tech Stack
+
+| Technology | Description |
+| ----------- | ----------- |
+| **React.js** | Frontend framework |
+| **TypeScript** | Type safety |
+| **Supabase** | Backend (Auth, Database, Realtime, Presence, Storage) |
+| **Tailwind CSS** | Styling |
+| **Vite** | Build tool |
+| **Netlify** | Hosting |
+
+---
+
+## 📦 Getting Started
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/sqien/greyChat.git
+
+# 2. Enter the project folder
+cd greyChat
+
+# 3. Install dependencies
+npm install
+
+# 4. Create your .env file (see below)
+
+# 5. Start development server
+npm run dev
