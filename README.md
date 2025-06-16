@@ -3,7 +3,7 @@
 ![greyChat Demo](https://s2.ezgif.com/tmp/ezgif-2c7983a6004c82.gif)
 
 ---
-
+## DEMO: https://greychat.netlify.app/
 ## 🚀 Project Overview
 
 **greyChat** is a minimalistic real-time chat application built with React, Supabase and TypeScript.  
